@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GrievanceAI</title>
+
+    <link rel="stylesheet" href="anmol1.css.css">
+    
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+
+    <div class="logo">
+        🛡️ Grievance<span>AI</span>
+    </div>
+
+    <nav>
+        <a class="active" href="#home">Home</a>
+        <a href="#report">Report</a>
+        <a href="#track">Track</a>
+        <a href="#search">Search</a>
+        <a href="#about">About</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="nav-buttons">
+        <button class="login" type="button" onclick="openAuth('login')">Login</button>
+        <button class="signup" type="button" onclick="openAuth('signup')">Sign Up</button>
+    </div>
+
+</header>
+
+<div id="authModal" hidden style="position:fixed;inset:0;z-index:20;background:#0008;display:none;place-items:center;padding:20px">
+    <div style="background:white;padding:24px;border-radius:14px;width:min(420px,100%);color:#222">
+        <button type="button" onclick="closeAuth()" style="float:right;border:0;background:none;font-size:22px">&times;</button>
+        <h2 id="authTitle">Login</h2>
+        <form id="authForm">
+            <label>Email</label>
+            <input id="authEmail" type="email" required style="display:block;width:100%;margin:8px 0 14px;padding:10px">
+            <label>Password</label>
+            <input id="authPassword" type="password" minlength="6" required style="display:block;width:100%;margin:8px 0 14px;padding:10px">
+            <button id="authSubmit" type="submit" class="submit-btn">Login</button>
+        </form>
+        <p id="authMessage" role="status"></p>
+    </div>
+</div>
+
+<button id="aiLauncher" type="button" onclick="toggleAiChat()" style="position:fixed;right:22px;bottom:22px;z-index:15;border:0;border-radius:50%;padding:16px;background:#ff6b00;color:white;font-size:20px;cursor:pointer">AI</button>
+<section id="aiChat" hidden style="position:fixed;right:22px;bottom:82px;z-index:15;width:min(360px,calc(100% - 32px));background:white;border:1px solid #f0e2cf;border-radius:14px;box-shadow:0 12px 35px #0003;padding:16px">
+    <button type="button" onclick="toggleAiChat()" style="float:right;border:0;background:none;font-size:20px">&times;</button>
+    <h3>Ask GrievanceAI</h3>
+    <div id="aiMessages" style="min-height:80px;max-height:220px;overflow:auto;margin:12px 0"></div>
+    <form id="aiForm" style="display:flex;gap:8px">
+        <input id="aiQuestion" required placeholder="Ask about complaints..." style="min-width:0;flex:1;padding:10px">
+        <button type="submit" class="submit-btn">Ask</button>
+    </form>
+</section>
+
+<div id="cameraModal" hidden style="position:fixed;inset:0;z-index:21;background:#000b;display:none;place-items:center;padding:20px">
+    <div style="background:white;padding:20px;border-radius:14px;width:min(520px,100%);text-align:center">
+        <button type="button" onclick="closeCamera()" style="float:right;border:0;background:none;font-size:22px">&times;</button>
+        <h2>Camera</h2>
+        <video id="cameraPreview" autoplay playsinline style="width:100%;max-height:360px;background:#111;border-radius:10px"></video>
+        <p id="cameraMessage" role="status"></p>
+        <button type="button" class="submit-btn" onclick="capturePhoto()">Capture Photo</button>
+        <button type="button" class="submit-btn" onclick="closeCamera()">Close Camera</button>
+    </div>
+</div>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <div class="hero-text">
+
+        <div class="badge">
+            ⚡ AI-Powered • Smarter Grievance Redressal
+        </div>
+
+        <h1>
+            Your Voice Matters<br>
+            We Make It <span>Heard</span>
+        </h1>
+
+        <p>
+            GrievanceAI is an intelligent platform that helps you
+            report, track and resolve civic issues faster and easier
+            with the power of AI.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#report" class="orange-btn">
+                🚀 Report a Grievance →
+            </a>
+
+            <a href="#track" class="outline-btn">
+                🔍 Track Your Complaint
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- HERO IMAGE -->
+    <div class="hero-image">
+
+        <div class="slider">
+
+              <img id="slideImage"
+                  src="WhatsApp Image 2026-09-22 at 17.39.03.jpeg"
+                 alt="GrievanceAI">
+
+		<img id="slideImage"
+                 src="WhatsApp Image 2026-09-22 at 00.28.12.jpeg"
+                 alt="GrievanceAI">
+
+		<img id="slideImage"
+                 src="WhatsApp Image 2026-09-22 at 00.28.27.jpeg"
+                 alt="GrievanceAI">
+
+
+
+            <button class="prev" onclick="prevSlide()">‹</button>
+            <button class="next" onclick="nextSlide()">›</button>
+
+            <div class="slide-text">
+                <small>Smart Cities</small>
+                <h2>Better Governance<br>Brighter Tomorrow</h2>
+            </div>
+
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FEATURES -->
+<section class="features" id="about">
+
+    <div class="feature">
+
+        <div class="feature-icon">⚡</div>
+
+        <h3>Quick Registration</h3>
+
+        <p>
+            Sign up in seconds and start reporting.
+        </p>
+
+    </div>
+
+
+    <div class="feature">
+
+        <div class="feature-icon">🧠</div>
+
+        <h3>AI-Powered Analysis</h3>
+
+        <p>
+            Automatically categorizes and prioritizes your issue.
+        </p>
+
+    </div>
+
+
+    <div class="feature">
+
+        <div class="feature-icon">📍</div>
+
+        <h3>Real-Time Tracking</h3>
+
+        <p>
+            Track your complaint at every stage.
+        </p>
+
+    </div>
+
+
+    <div class="feature">
+
+        <div class="feature-icon">🛡️</div>
+
+        <h3>Transparent Process</h3>
+
+        <p>
+            Full visibility and accountability.
+        </p>
+
+    </div>
+
+
+    <div class="feature">
+
+        <div class="feature-icon">👥</div>
+
+        <h3>Faster Resolution</h3>
+
+        <p>
+            Helps authorities act quickly and efficiently.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- REPORT SECTION -->
+<section class="report-section" id="report">
+
+    <div class="report-info">
+
+        <div class="small-badge">
+            Make Your City Better
+        </div>
+
+        <h2>
+            Report. Track. <span>Resolve.</span>
+        </h2>
+
+        <p>
+            From potholes to power cuts, from water issues
+            to public services — your grievance matters.
+        </p>
+
+        <a href="#complaintForm" class="orange-btn">
+            Report Now →
+        </a>
+
+    </div>
+
+
+    <!-- FORM -->
+    <div class="form-card">
+
+        <h2>📝 Report a Grievance</h2>
+
+        <p>
+            Fill in the details and let AI handle the rest.
+        </p>
+
+        <form id="complaintForm">
+
+            <label for="name">Full Name *</label>
+            <input id="name" type="text" placeholder="Enter your full name" required>
+
+            <label for="phone">Mobile Number *</label>
+            <input id="phone" type="tel" inputmode="numeric" pattern="[0-9]{10}" placeholder="Enter 10 digit mobile number" required>
+
+            <label for="email">Email *</label>
+            <input id="email" type="email" placeholder="Enter your email address" required>
+
+            <label for="address">Address *</label>
+            <textarea id="address" rows="2" placeholder="Enter your complete address" required></textarea>
+
+               <div class="input-row">
+
+    <!-- Camera -->
+    <div class="input-group">
+        <label>Camera</label>
+
+        <button type="button" class="action-box" onclick="openCamera()">
+            <span class="action-icon">📷</span>
+            <span>Open Camera</span>
+            <span class="arrow">›</span>
+        </button>
+
+        <input
+            type="file"
+            id="cameraInput"
+            accept="image/*"
+            capture="environment"
+            hidden
+        >
+    </div>
+
+
+    <!-- Location -->
+    <div class="input-group">
+        <label>Location</label>
+
+        <button type="button" class="action-box" onclick="getLocation()">
+            <span class="action-icon">📍</span>
+            <span id="locationText">Use Current Location</span>
+            <span class="arrow">›</span>
+        </button>
+
+    </div>
+
+    </div>
+
+
+            <label>Describe your issue</label>
+
+            <textarea
+                id="complaint"
+                placeholder="Write about your issue..."
+                required></textarea>
+
+
+            <label>Complaint Photo</label>
+
+            <button type="button" class="action-box" onclick="openCamera()">
+                <span class="action-icon">📷</span>
+                <span>Open Camera to Capture Photo</span>
+                <span class="arrow">›</span>
+            </button>
+
+
+            <button class="submit-btn" type="submit">
+                Submit Grievance →
+            </button>
+
+        </form>
+
+
+        <div id="ticketResult"></div>
+        <img id="capturedPhotoPreview" alt="Captured complaint photo" hidden style="max-width:100%;margin-top:12px;border-radius:10px">
+
+    </div>
+
+
+    <!-- AI CARD -->
+    <div class="ai-card">
+
+        <div class="ai-icon">🤖</div>
+
+        <h3>
+            AI Will Automatically<br>
+            Detect Category & Priority
+        </h3>
+
+        <div class="ai-item">
+            🏛️ <b>Issue Type</b>
+            <small>Water, Electricity, Road</small>
+        </div>
+
+        <div class="ai-item">
+            ⭐ <b>Priority Level</b>
+            <small>Low / Medium / High</small>
+        </div>
+
+        <div class="ai-item">
+            🏢 <b>Department</b>
+            <small>Concerned Department</small>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- TRACK -->
+<section class="track-section" id="track">
+
+    <div>
+
+        <div class="feature-icon">🔍</div>
+
+        <h2>Track Your Complaint</h2>
+
+        <p>
+            Enter your ticket ID to check the current
+            status of your grievance.
+        </p>
+
+    </div>
+
+
+    <div class="track-box">
+
+        <input
+            type="text"
+            id="ticketInput"
+            placeholder="Enter Ticket ID e.g. GA12345">
+
+        <button onclick="trackComplaint()">
+            Track
+        </button>
+
+    </div>
+
+</section>
+
+<section class="track-section" id="search">
+    <div>
+        <div class="feature-icon">⌕</div>
+        <h2>Search Complaints</h2>
+        <p>Search by ticket ID, name, mobile, email, category or issue.</p>
+    </div>
+    <div class="track-box">
+        <input type="search" id="searchInput" placeholder="Search complaints...">
+        <button type="button" onclick="searchComplaints()">Search</button>
+    </div>
+    <div id="searchResults" style="grid-column:1/-1"></div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-logo">
+        🛡️ Grievance<span>AI</span>
+    </div>
+
+    <p>Your Voice • Our Priority</p>
+
+    <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#report">Report</a>
+        <a href="#track">Track</a>
+        <a href="#about">About</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <small>
+        © 2026 GrievanceAI. All Rights Reserved.<br>
+	team leader preeti yaduvanshi<br>
+	members 1.anmol yadav<br>
+	        2.payal rathore<br>
+	        3.vivek mehra
+ </small>
+
+
+</footer>
+
+
+<script src="js.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>Admin Dashboard</title>
+
+<link rel="stylesheet" href="css.css.css">
+
+</head>
+
+
+<body>
+<!-- LOCATION MAP -->
+<section class="map-section">
+
+  <div class="map-heading">
+    <p class="tag">SERVICE LOCATION</p>
+    <h2>Find Grievance Services Near You</h2>
+    <p>
+      View your location and nearby grievance service areas.
+    </p>
+  </div>
+
+  <div id="map"></div>
+
+</section>
+
+<!-- Leaflet Map -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+
+<script>
+
+  // Default location
+  const latitude = 22.7196;
+  const longitude = 75.8577;
+
+  // Create map
+  const map = L.map("map").setView(
+    [latitude, longitude],
+    13
+  );
+
+  // OpenStreetMap
+  L.tileLayer(
+    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    {
+      attribution: "&copy; OpenStreetMap contributors"
+    }
+  ).addTo(map);
+
+  // Location marker
+  const marker = L.marker([
+    latitude,
+    longitude
+  ]).addTo(map);
+
+  // Popup
+  marker.bindPopup(`
+    <div style="text-align:center">
+      <b>📍 Your Location</b>
+      <br>
+      Grievance Service Area
+    </div>
+  `).openPopup();
+
+</script>
+
+<header>
+
+<div class="logo">
+🛡️ Grievance<span>AI</span>
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="track.html">Track</a>
+<a href="admin.html">Admin</a>
+</nav>
+
+</header>
+
+
+<main class="dashboard">
+
+<p class="tag">ADMIN DASHBOARD</p>
+
+<h1>Grievance Overview</h1>
+
+<p class="muted">
+Monitor complaints, departments and resolution status.
+</p>
+
+
+<div class="stats">
+
+<div class="stat-card">
+<span>📋</span>
+<small>Total Complaints</small>
+<h2>1,248</h2>
+<p>↑ 12% this week</p>
+</div>
+
+<div class="stat-card">
+<span>⏳</span>
+<small>Pending</small>
+<h2>326</h2>
+<p>↑ 8% this week</p>
+</div>
+
+<div class="stat-card">
+<span>✓</span>
+<small>Resolved</small>
+<h2>852</h2>
+<p>↑ 15% this week</p>
+</div>
+
+<div class="stat-card critical-card">
+<span>🚨</span>
+<small>Critical</small>
+<h2>70</h2>
+<p>↑ 5% this week</p>
+</div>
+
+</div>
+
+
+<div class="dashboard-grid">
+
+
+<div class="dashboard-card">
+
+<h3>Complaints by Category</h3>
+
+<div class="chart">
+
+<div>
+<span>Electricity</span>
+<div class="bar">
+<i style="width:85%"></i>
+</div>
+</div>
+
+<div>
+<span>Water</span>
+<div class="bar">
+<i style="width:70%"></i>
+</div>
+</div>
+
+<div>
+<span>Roads</span>
+<div class="bar">
+<i style="width:60%"></i>
+</div>
+</div>
+
+<div>
+<span>Healthcare</span>
+<div class="bar">
+<i style="width:45%"></i>
+</div>
+</div>
+
+<div>
+<span>Education</span>
+<div class="bar">
+<i style="width:35%"></i>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="dashboard-card">
+
+<h3>Department Performance</h3>
+
+<div class="performance">
+
+<p>
+Electricity
+<strong>85%</strong>
+</p>
+
+<div class="bar">
+<i style="width:85%"></i>
+</div>
+
+<p>
+Water
+<strong>78%</strong>
+</p>
+
+<div class="bar">
+<i style="width:78%"></i>
+</div>
+
+<p>
+Municipal
+<strong>72%</strong>
+</p>
+
+<div class="bar">
+<i style="width:72%"></i>
+</div>
+
+<p>
+Healthcare
+<strong>68%</strong>
+</p>
+
+<div class="bar">
+<i style="width:68%"></i>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="dashboard-card table-card">
+
+<h3>Recent Grievances</h3>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Ticket ID</th>
+<th>Category</th>
+<th>Priority</th>
+<th>Status</th>
+<th>Date</th>
+</tr>
+
+</thead>
+
+
+<tbody>
+
+<tr>
+<td>GRV-00125</td>
+<td>Electricity</td>
+<td><span class="high">HIGH</span></td>
+<td>In Progress</td>
+<td>20 Sep</td>
+</tr>
+
+<tr>
+<td>GRV-00124</td>
+<td>Water</td>
+<td><span class="normal">NORMAL</span></td>
+<td>Submitted</td>
+<td>20 Sep</td>
+</tr>
+
+<tr>
+<td>GRV-00123</td>
+<td>Healthcare</td>
+<td><span class="critical">CRITICAL</span></td>
+<td>Escalated</td>
+<td>19 Sep</td>
+</tr>
+
+<tr>
+<td>GRV-00122</td>
+<td>Roads</td>
+<td><span class="high">HIGH</span></td>
+<td>In Progress</td>
+<td>19 Sep</td>
+</tr>
+
+<tr>
+<td>GRV-00121</td>
+<td>Education</td>
+<td><span class="normal">NORMAL</span></td>
+<td>Resolved</td>
+<td>18 Sep</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</main>
+
+</body>
+</html>

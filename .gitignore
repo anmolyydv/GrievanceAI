@@ -1,0 +1,13 @@
+node_modules/
+**/node_modules/
+.env
+**/.env
+*.env.*
+backend/grievance.db
+backend/complaints.db
+*.db
+*.sqlite3
+dist/
+build/
+.DS_Store
+

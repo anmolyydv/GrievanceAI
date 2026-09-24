@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GrievanceAI</title>
+  <link rel="stylesheet" href="css.css.css">
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🛡️ Grievance<span>AI</span></div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="track.html">Track Complaint</a>
+    <a href="#about">About</a>
+    <button class="login">Login</button>
+  </nav>
+</header>
+
+<section class="hero">
+
+  <div class="hero-text">
+    <p class="tag">AI-POWERED GRIEVANCE REDRESSAL</p>
+
+    <h1>
+      Report an issue.<br>
+      <span>Get it resolved.</span>
+    </h1>
+
+    <p class="description">
+      Our AI automatically categorizes, prioritizes and routes
+      your complaints to the right department — faster and smarter.
+    </p>
+
+    <button class="report-btn" onclick="location.href='index.html#complaint'">
+    Report with photos and videos
+</button>
+
+<div class="slider">
+    <div class="slides">
+        <img src=""C:\Users\computer gallery\Desktop\web\day10\sih\WhatsApp Image 2026-09-22 at 00.27.54.jpeg"" alt="Slide 1">
+        <img src="" alt="Slide 2">
+        <img src="" alt="Slide 3">
+        <img src="" alt="Slide 4">
+    </div>
+</div>
+
+      <a href="track.html" class="secondary-btn">
+        🔍 Track Complaint
+      </a>
+    </div>
+  </div>
+
+
+  <div class="hero-image">
+    <div class="ai-circle">🤖</div>
+    <div class="feature f1">🧠 AI Analysis</div>
+    <div class="feature f2">🔀 Smart Routing</div>
+    <div class="feature f3">🔔 Real-time Updates</div>
+    <div class="feature f4">⚡ Faster Resolution</div>
+  </div>
+
+</section>
+
+
+<section class="features">
+
+  <div class="feature-box">
+    <div>📝</div>
+    <h3>Register</h3>
+    <p>Submit your complaint in minutes.</p>
+  </div>
+
+  <div class="feature-box">
+    <div>🧠</div>
+    <h3>AI Analysis</h3>
+    <p>Automatic categorization & prioritization.</p>
+  </div>
+
+  <div class="feature-box">
+    <div>🔍</div>
+    <h3>Track</h3>
+    <p>Get real-time updates on your complaint.</p>
+  </div>
+
+  <div class="feature-box">
+    <div>🚨</div>
+    <h3>Escalate</h3>
+    <p>Delayed cases are automatically escalated.</p>
+  </div>
+
+</section>
+<!-- LOCATION MAP -->
+<section class="map-section">
+
+  <div class="map-heading">
+    <p class="tag">SERVICE LOCATION</p>
+    <h2>Find Grievance Services Near You</h2>
+    <p>
+      View your location and nearby grievance service areas.
+    </p>
+  </div>
+
+  <div id="map"></div>
+
+</section>
+
+<!-- Leaflet Map -->
+<link
+  rel="stylesheet"
+  href="https://www.google.com/maps/@23.2153543,77.0909803,13z?entry=ttu&g_ep=EgoyMDI2MDkxNi4wIKXMDSoASAFQAw%3D%3D"
+/>
+
+<script
+  src="https://www.google.com/maps/@23.2153543,77.0909803,13z?entry=ttu&g_ep=EgoyMDI2MDkxNi4wIKXMDSoASAFQAw%3D%3D">
+</script>
+
+<script>
+
+  // Default location
+  const latitude = 22.7196;
+  const longitude = 75.8577;
+
+  // Create map
+  const map = L.map("map").setView(
+    [latitude, longitude],
+    13
+  );
+
+  // OpenStreetMap
+  L.tileLayer(
+    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    {
+      attribution: "&copy; OpenStreetMap contributors"
+    }
+  ).addTo(map);
+
+  // Location marker
+  const marker = L.marker([
+    latitude,
+    longitude
+  ]).addTo(map);
+
+  // Popup
+  marker.bindPopup(`
+    <div style="text-align:center">
+      <b>📍 Your Location</b>
+      <br>
+      Grievance Service Area
+    </div>
+  `).openPopup();
+
+</script>
+
+
+
+<section id="complaint" class="complaint-section">
+
+  <div class="form-card">
+
+    <p class="tag">CITIZEN PORTAL</p>
+    <h2>Register Your Grievance</h2>
+    <p class="muted">
+      Tell us about your problem and our AI will analyze it.
+    </p>
+
+    <form id="complaintForm">
+
+      <label>Name *</label>
+      <input
+        type="text"
+        id="name"
+        placeholder="Enter your name"
+        required
+      >
+
+      <label>Mobile Number *</label>
+      <input
+        type="tel"
+        id="phone"
+        placeholder="Enter 10 digit mobile number"
+        required
+      >
+
+      <label>Email</label>
+      <input
+        type="email"
+        id="email"
+        placeholder="Enter your email"
+      >
+
+      <label>Describe Your Complaint *</label>
+
+      <textarea
+        id="complaint"
+        maxlength="500"
+        placeholder="Example: Street light near my college has not been working for 5 days..."
+        required
+      ></textarea>
+
+      <div class="counter">
+        <span id="count">0</span>/500
+      </div>
+
+      <button type="submit" class="submit-btn">
+        🚀 Submit Grievance
+      </button>
+
+    </form>
+
+  </div>
+
+
+  <div id="resultCard" class="result-card hidden">
+
+    <div class="success-icon">✓</div>
+
+    <h2>Complaint Registered!</h2>
+
+    <p>Your grievance has been successfully submitted.</p>
+
+    <div class="ticket">
+      <small>Ticket ID</small>
+      <strong id="ticketId">GRV-2026-00125</strong>
+    </div>
+
+    <div class="ai-box">
+
+      <h3>🧠 AI Analysis</h3>
+
+      <div class="info">
+        <span>Category</span>
+        <b id="category">Electricity</b>
+      </div>
+
+      <div class="info">
+        <span>Department</span>
+        <b id="department">Electricity Department</b>
+      </div>
+
+      <div class="info">
+        <span>Priority</span>
+        <b id="priority" class="high">HIGH</b>
+      </div>
+
+      <div class="info">
+        <span>Estimated Resolution</span>
+        <b id="eta">2 - 3 Days</b>
+      </div>
+
+    </div>
+
+    <a href="track.html" class="track-btn">
+      → Track Complaint
+    </a>
+
+  </div>
+
+</section>
+
+
+<footer>
+  <h3>GrievanceAI</h3>
+  <p>AI-powered transparent grievance management system.</p>
+  <p>© 2026 GrievanceAI</p>
+</footer>
+
+<script src="anmol1.js"></script>
+
+</body>
+</html>
