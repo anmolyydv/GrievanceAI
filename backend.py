@@ -1060,12 +1060,10 @@ async function track(){
 </html>
 """
 
-@app.get(
-    "/",
-    response_class=HTMLResponse
-)
+@app.get("/", response_class=HTMLResponse)
 def home():
-    return HTML
+    with open("index.html", "r", encoding="utf-8") as f:
+        return f.read()
 
 @app.post("/api/analyze")
 async def analyze_api(

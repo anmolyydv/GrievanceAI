@@ -858,3 +858,686 @@ footer p {
     }
 
 }
+/* =====================================================
+   GRIEVANCE AI - BLUE + GREEN THEME
+   ===================================================== */
+
+:root {
+    --blue: #1769e0;
+    --dark-blue: #0b3d91;
+    --green: #16a34a;
+    --light-green: #e9f9ef;
+    --light-blue: #eaf3ff;
+    --white: #ffffff;
+    --text: #17324d;
+    --border: #d7e5f2;
+    --shadow: 0 8px 25px rgba(23, 105, 224, 0.12);
+}
+
+
+/* ================= BODY ================= */
+
+body {
+    background: linear-gradient(
+        135deg,
+        #f4f9ff 0%,
+        #f1fff6 100%
+    );
+
+    color: var(--text);
+}
+
+
+/* ================= NAVBAR ================= */
+
+nav,
+.navbar {
+    background: linear-gradient(
+        90deg,
+        var(--dark-blue),
+        var(--blue),
+        var(--green)
+    ) !important;
+
+    color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+
+/* Navbar links */
+
+nav a,
+.navbar a {
+    color: white !important;
+    transition: 0.3s;
+}
+
+nav a:hover,
+.navbar a:hover {
+    color: #b9ffd0 !important;
+}
+
+
+/* ================= HEADINGS ================= */
+
+h1,
+h2,
+h3 {
+    color: var(--dark-blue);
+}
+
+h1 span,
+h2 span {
+    color: var(--green);
+}
+
+
+/* ================= BUTTONS ================= */
+
+button {
+    border: none;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+
+/* Main buttons */
+
+button[type="submit"],
+.submit-btn,
+.report-btn {
+    background: linear-gradient(
+        90deg,
+        var(--blue),
+        var(--green)
+    ) !important;
+
+    color: white !important;
+
+    box-shadow: 0 5px 15px rgba(23, 105, 224, 0.25);
+}
+
+
+button[type="submit"]:hover,
+.submit-btn:hover,
+.report-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(22, 163, 74, 0.30);
+}
+
+
+/* ================= CARDS ================= */
+
+.card,
+.feature-card,
+.complaint-card,
+section {
+    border-color: var(--border);
+}
+
+
+/* Cards that have white background */
+
+.card,
+.feature-card,
+.complaint-card {
+    background: rgba(255,255,255,0.95);
+
+    border: 1px solid var(--border);
+
+    box-shadow: var(--shadow);
+
+    border-radius: 16px;
+}
+
+
+/* ================= FORM ================= */
+
+input,
+textarea,
+select {
+    width: 100%;
+
+    border: 1.5px solid var(--border);
+
+    border-radius: 10px;
+
+    padding: 12px;
+
+    background: white;
+
+    color: var(--text);
+
+    outline: none;
+
+    transition: 0.25s;
+}
+
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--blue);
+
+    box-shadow:
+        0 0 0 3px rgba(23,105,224,0.12);
+}
+
+
+/* ================= REPORT AREA ================= */
+
+#report {
+    background: linear-gradient(
+        135deg,
+        #edf5ff,
+        #edfff4
+    );
+}
+
+
+/* ================= LOCATION ================= */
+
+#locationText {
+    color: var(--green);
+    font-weight: 600;
+}
+
+
+/* ================= CAMERA ================= */
+
+#cameraModal {
+    background: rgba(4, 25, 50, 0.75);
+}
+
+
+#cameraPreview {
+    border: 4px solid var(--blue);
+    border-radius: 14px;
+}
+
+
+#capturedPhotoPreview {
+    border: 3px solid var(--green);
+    border-radius: 12px;
+}
+
+
+/* ================= TICKET RESULT ================= */
+
+#ticketResult {
+    border-radius: 14px;
+}
+
+
+#ticketResult div {
+    border-left: 5px solid var(--green);
+}
+
+
+/* ================= SEARCH RESULTS ================= */
+
+#searchResults article {
+    border-left: 4px solid var(--blue) !important;
+
+    box-shadow: 0 5px 15px rgba(23,105,224,0.08);
+
+    transition: 0.25s;
+}
+
+
+#searchResults article:hover {
+    transform: translateY(-2px);
+
+    border-left-color: var(--green) !important;
+}
+
+
+/* ================= TRACK BUTTON ================= */
+
+#ticketInput {
+    border-color: var(--blue);
+}
+
+
+/* ================= AI CHAT ================= */
+
+#aiChat {
+    background: white;
+
+    border: 2px solid var(--blue);
+
+    box-shadow:
+        0 10px 35px rgba(23,105,224,0.20);
+
+    border-radius: 16px;
+}
+
+
+#aiMessages {
+    background: var(--light-blue);
+
+    border-radius: 10px;
+}
+
+
+#aiMessages p {
+    padding: 8px;
+    border-radius: 8px;
+}
+
+
+#aiMessages p b {
+    color: var(--green);
+}
+
+
+/* ================= LOGIN / SIGNUP ================= */
+
+#authModal {
+    background: rgba(4, 25, 50, 0.70);
+}
+
+
+#authModal > div {
+    background: white;
+
+    border-top: 5px solid var(--blue);
+
+    border-bottom: 5px solid var(--green);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,0.25);
+}
+
+
+#authTitle {
+    color: var(--dark-blue);
+}
+
+
+#authSubmit {
+    background: linear-gradient(
+        90deg,
+        var(--blue),
+        var(--green)
+    );
+
+    color: white;
+}
+
+
+/* ================= SLIDER ================= */
+
+.slider {
+    border-radius: 18px;
+    overflow: hidden;
+
+    box-shadow:
+        0 10px 30px rgba(23,105,224,0.15);
+}
+
+
+.slider img {
+    border-radius: 18px;
+}
+
+
+/* ================= DOTS ================= */
+
+.dot {
+    background: #b8cde0 !important;
+}
+
+
+.dot.active {
+    background: var(--green) !important;
+}
+
+
+/* ================= LINKS ================= */
+
+a {
+    color: var(--blue);
+}
+
+a:hover {
+    color: var(--green);
+}
+
+
+/* ================= ICON / BADGE ================= */
+
+.badge,
+.status,
+.category {
+    background: var(--light-blue);
+    color: var(--blue);
+
+    border-radius: 20px;
+
+    padding: 5px 12px;
+}
+
+
+.priority-high {
+    background: #fff0f0;
+    color: #dc2626;
+}
+
+
+.priority-medium {
+    background: #fff8e6;
+    color: #d97706;
+}
+
+
+.priority-low {
+    background: var(--light-green);
+    color: var(--green);
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: linear-gradient(
+        90deg,
+        var(--dark-blue),
+        var(--blue),
+        var(--green)
+    );
+
+    color: white;
+}
+
+footer a {
+    color: white;
+}
+
+
+/* ================= SCROLLBAR ================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        var(--blue),
+        var(--green)
+    );
+
+    border-radius: 10px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .card,
+    .feature-card,
+    .complaint-card {
+        margin: 10px;
+    }
+
+    button {
+        min-height: 44px;
+    }
+
+}
+/* =========================================
+   CHANGE ALL ORANGE TO GREEN
+   ========================================= */
+
+/* Orange backgrounds */
+[style*="orange"],
+[style*="#orange"],
+.orange,
+.orange-bg {
+    background-color: #16a34a !important;
+    background: #16a34a !important;
+}
+
+/* Common orange colors */
+button,
+.btn,
+.report-btn,
+.submit-btn {
+    border-color: #16a34a !important;
+}
+
+/* Orange text */
+.orange-text {
+    color: #16a34a !important;
+}
+
+/* Existing orange theme variables */
+:root {
+    --orange: #16a34a !important;
+    --primary-orange: #16a34a !important;
+    --accent-orange: #16a34a !important;
+}
+
+/* Orange-looking borders */
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #16a34a !important;
+}
+
+/* Orange highlights */
+.highlight,
+.active,
+.active-dot {
+    background-color: #16a34a !important;
+    color: white !important;
+}
+
+/* Orange hover */
+button:hover,
+.btn:hover,
+.report-btn:hover,
+.submit-btn:hover {
+    background: #15803d !important;
+    border-color: #15803d !important;
+}
+
+/* Orange result/card areas */
+#ticketResult,
+.ticket-result {
+    border-left-color: #16a34a !important;
+}
+
+/* Orange links */
+a:hover {
+    color: #16a34a !important;
+}
+#cameraModal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.75);
+    align-items: center;
+    justify-content: center;
+}
+
+.camera-box {
+    width: min(500px, 92%);
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+#cameraVideo {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 15px;
+    background: #111;
+    display: block;
+    margin: 15px 0;
+}
+
+.camera-box button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #1769e0, #16a34a);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.camera-close {
+    position: absolute !important;
+    right: 12px;
+    top: 8px;
+    width: 40px !important;
+    padding: 5px !important;
+    background: transparent !important;
+    color: #333 !important;
+    font-size: 25px !important;
+}
+/* =========================
+   CAMERA INTERFACE
+========================= */
+
+.camera-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: rgba(0, 0, 0, 0.90);
+
+    align-items: center;
+    justify-content: center;
+}
+
+.camera-box {
+    width: min(520px, 94%);
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+.camera-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 8px 12px;
+}
+
+.camera-header h2 {
+    margin: 0;
+    color: #123b68;
+    font-size: 21px;
+}
+
+.camera-header button {
+    border: none;
+    background: transparent;
+    font-size: 25px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* LIVE VIDEO */
+
+#cameraVideo {
+    width: 100%;
+    height: 360px;
+
+    object-fit: cover;
+
+    background: #111;
+
+    border-radius: 16px;
+    display: block;
+}
+
+/* STATUS */
+
+#cameraStatus {
+    margin: 10px 0;
+    color: #16a34a;
+    font-weight: bold;
+}
+
+/* CAPTURE BUTTON */
+
+.capture-button {
+    width: 72px !important;
+    height: 72px !important;
+
+    border-radius: 50% !important;
+
+    border: 6px solid white !important;
+
+    background: #16a34a !important;
+
+    box-shadow:
+        0 0 0 3px #16a34a,
+        0 5px 15px rgba(0,0,0,0.3);
+
+    color: white;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    margin-top: 5px;
+}
+
+.capture-button:active {
+    transform: scale(0.90);
+}
+.escalation-box {
+    margin-top: 20px;
+    padding: 18px;
+    border-radius: 14px;
+    background: #fff4f4;
+    border-left: 5px solid #dc2626;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.escalation-box h3 {
+    color: #dc2626;
+    margin-bottom: 10px;
+}
+
+.escalation-box p {
+    margin: 8px 0;
+}
+
+.escalation-box strong {
+    color: #111827;
+}
+
+/* ================= DATABASE ALERT & TOAST ================= */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
